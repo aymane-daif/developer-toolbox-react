@@ -1,7 +1,13 @@
 import './App.css';
+import SwitchTheme from './components/SwitchTheme';
 
 function App() {
-  return <div className='App'>hello world</div>;
+  return (
+    <>
+      <div>hello world</div>
+      <SwitchTheme />
+    </>
+  );
 }
 
 export default App;
