@@ -5,15 +5,46 @@ function Tools() {
   const tools = [
     {
       name: 'Formatters',
-      options: ['JSON Formatter', 'HTML Formatter', 'CSS Formatter'],
+      options: [
+        {
+          name: 'JSON Formatter',
+          route: '/jsonFormatter',
+        },
+        {
+          name: 'HTML Formatter',
+          route: '/htmlFormatter',
+        },
+        {
+          name: 'CSS Formatter',
+          route: '/cssFormatter',
+        },
+      ],
     },
     {
       name: 'Compression',
-      options: ['Image Compression', 'Image Decompression'],
+      options: [
+        {
+          name: 'Image Compression',
+          route: '/imageCompressor',
+        },
+        {
+          name: 'Image Decompression',
+          route: '/imageDecompressor',
+        },
+      ],
     },
     {
       name: 'Generators',
-      options: ['Secret key Generator', 'Password Generator'],
+      options: [
+        {
+          name: 'Secret key Generator',
+          route: '/secretKeyGenerator',
+        },
+        {
+          name: 'Password Generator',
+          route: '/passwordGenerator',
+        },
+      ],
     },
   ];
   return (
