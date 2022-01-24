@@ -16,68 +16,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-const LOWER_LETTERS = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-];
-const UPPER_LETTERS = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
-const NUMBERS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const SYMBOLS = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '@'];
-
-function chooseChar(chars) {
-  return chars[Math.floor(Math.random() * chars.length)];
-}
+import { generatePassword } from '../utils/password';
 
 function PasswordGenerator() {
   const initialOptions = {
@@ -91,45 +30,20 @@ function PasswordGenerator() {
   const [passwordOptions, setPasswordOptions] = useState({ ...initialOptions });
   const [inputWidth, setInputWidth] = useState('0em');
   const [password, setPassword] = useState('');
-
   const [flag, setFlag] = useBoolean();
-
   const { hasCopied, onCopy } = useClipboard(password);
   const toast = useToast();
   const toastIdClipboard = Math.random();
 
-  const generatePassword = () => {
-    const usedChars = [];
-    let generatedPassword = '';
-    if (passwordOptions.lower_letters) {
-      usedChars.push(LOWER_LETTERS);
-    }
-    if (passwordOptions.upper_letters) {
-      usedChars.push(UPPER_LETTERS);
-    }
-    if (passwordOptions.numbers) {
-      usedChars.push(NUMBERS);
-    }
-    if (passwordOptions.symbols) {
-      usedChars.push(SYMBOLS);
-    }
-    for (let i = 0; i < passwordOptions.passwordLength; i++) {
-      const chars = usedChars[Math.floor(Math.random() * usedChars.length)];
-      generatedPassword += chooseChar(chars);
-    }
-    return generatedPassword;
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let generatedPsswd = generatePassword();
+    let generatedPassword = generatePassword(passwordOptions);
     setFlag.on();
     setInputWidth(passwordOptions.passwordLength + 'em');
-    setPassword(generatedPsswd);
+    setPassword(generatedPassword);
 
-    setPasswordOptions((state) => {
-      return {
-        ...initialOptions,
-      };
+    setPasswordOptions({
+      ...initialOptions,
     });
   };
   const setLength = (value) => {
