@@ -1,7 +1,8 @@
 import React from 'react';
+import AppEditor from './AppEditor';
 
 function CssFormatter() {
-  return <div>css</div>;
+  return <AppEditor language='css' />;
 }
 
 export default CssFormatter;

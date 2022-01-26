@@ -1,7 +1,8 @@
 import React from 'react';
+import AppEditor from './AppEditor';
 
 function JsonFormatter() {
-  return <div>json</div>;
+  return <AppEditor language='json' />;
 }
 
 export default JsonFormatter;
