@@ -4,11 +4,13 @@ import './App.css';
 import CssFormatter from './components/CssFormatter';
 import Home from './components/Home';
 import HtmlFormatter from './components/HtmlFormatter';
+import JavascriptFormatter from './components/JavascriptFormatter';
 import JsonFormatter from './components/JsonFormatter';
 import PasswordGenerator from './components/PasswordGenerator';
 import SecretKeyGenerator from './components/SecretKeyGenerator';
 import SideBar from './components/SideBar';
 import SwitchTheme from './components/SwitchTheme';
+import XmlFormatter from './components/XmlFormatter';
 
 function App() {
   return (
@@ -31,6 +33,11 @@ function App() {
               <Route path='/htmlFormatter' element={<HtmlFormatter />} />
               <Route path='/cssFormatter' element={<CssFormatter />} />
               <Route path='/jsonFormatter' element={<JsonFormatter />} />
+              <Route
+                path='/javascriptFormatter'
+                element={<JavascriptFormatter />}
+              />
+              <Route path='/xmlFormatter' element={<XmlFormatter />} />
             </Routes>
           </main>
         </BrowserRouter>

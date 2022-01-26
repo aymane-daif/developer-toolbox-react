@@ -18,6 +18,14 @@ function Tools() {
           name: 'CSS Formatter',
           route: '/cssFormatter',
         },
+        {
+          name: 'Javascript Formatter',
+          route: '/javascriptFormatter',
+        },
+        {
+          name: 'XML Formatter',
+          route: '/xmlFormatter',
+        },
       ],
     },
     {
