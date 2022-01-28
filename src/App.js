@@ -1,7 +1,8 @@
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import CssFormatter from './components/CssFormatter';
+import Header from './components/Header';
 import Home from './components/Home';
 import HtmlFormatter from './components/HtmlFormatter';
 import JavascriptFormatter from './components/JavascriptFormatter';
@@ -15,11 +16,11 @@ import XmlFormatter from './components/XmlFormatter';
 function App() {
   return (
     <>
-      <div>header</div>
+      <Header />
       <Flex>
         <BrowserRouter>
           <SideBar />
-          <main>
+          <Box mt='12' w='80%' h='90vh' mx='10'>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route
@@ -39,7 +40,7 @@ function App() {
               />
               <Route path='/xmlFormatter' element={<XmlFormatter />} />
             </Routes>
-          </main>
+          </Box>
         </BrowserRouter>
         <SwitchTheme />
       </Flex>
