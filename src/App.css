@@ -1,3 +1,9 @@
 main {
   width: 80%;
+  max-height: 100vh;
+  margin: 0 3rem;
+}
+main section {
+  height: 100%;
+  width: 100%;
 }
