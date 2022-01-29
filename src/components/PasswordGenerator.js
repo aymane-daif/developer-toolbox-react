@@ -16,7 +16,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-import { generatePassword } from '../utils/password';
+import { generateRandomString } from '../utils/randoms';
 
 function PasswordGenerator() {
   const initialOptions = {
@@ -33,11 +33,11 @@ function PasswordGenerator() {
   const [flag, setFlag] = useBoolean();
   const { hasCopied, onCopy } = useClipboard(password);
   const toast = useToast();
-  const toastIdClipboard = Math.random();
+  const toastIdClipboard = 'password';
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let generatedPassword = generatePassword(passwordOptions);
+    let generatedPassword = generateRandomString(passwordOptions);
     setFlag.on();
     setInputWidth(passwordOptions.passwordLength + 'em');
     setPassword(generatedPassword);

@@ -40,10 +40,10 @@ export default [
   {
     name: 'Generators',
     options: [
-      // {
-      //   name: 'Secret key Generator',
-      //   route: '/secretKeyGenerator',
-      // },
+      {
+        name: 'Secret key Generator',
+        route: '/secretKeyGenerator',
+      },
       {
         name: 'Password Generator',
         route: '/passwordGenerator',

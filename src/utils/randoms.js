@@ -3,24 +3,24 @@ import { LOWER_LETTERS, UPPER_LETTERS, NUMBERS, SYMBOLS } from './constants';
 function chooseChar(chars) {
   return chars[Math.floor(Math.random() * chars.length)];
 }
-export const generatePassword = (passwordOptions) => {
+export const generateRandomString = (stringOptions) => {
   const usedChars = [];
-  let generatedPassword = '';
-  if (passwordOptions.lower_letters) {
+  let generatedString = '';
+  if (stringOptions.lower_letters) {
     usedChars.push(LOWER_LETTERS);
   }
-  if (passwordOptions.upper_letters) {
+  if (stringOptions.upper_letters) {
     usedChars.push(UPPER_LETTERS);
   }
-  if (passwordOptions.numbers) {
+  if (stringOptions.numbers) {
     usedChars.push(NUMBERS);
   }
-  if (passwordOptions.symbols) {
+  if (stringOptions.symbols) {
     usedChars.push(SYMBOLS);
   }
-  for (let i = 0; i < passwordOptions.passwordLength; i++) {
+  for (let i = 0; i < stringOptions.passwordLength; i++) {
     const chars = usedChars[Math.floor(Math.random() * usedChars.length)];
-    generatedPassword += chooseChar(chars);
+    generatedString += chooseChar(chars);
   }
-  return generatedPassword;
+  return generatedString;
 };
