@@ -5,6 +5,7 @@ import CssFormatter from './components/CssFormatter';
 import Header from './components/Header';
 import Home from './components/Home';
 import HtmlFormatter from './components/HtmlFormatter';
+import ImageCompressor from './components/ImageCompressor';
 import JavascriptFormatter from './components/JavascriptFormatter';
 import JsonFormatter from './components/JsonFormatter';
 import PasswordGenerator from './components/PasswordGenerator';
@@ -39,6 +40,7 @@ function App() {
                 element={<JavascriptFormatter />}
               />
               <Route path='/xmlFormatter' element={<XmlFormatter />} />
+              <Route path='/imageCompressor' element={<ImageCompressor />} />
             </Routes>
           </Box>
         </BrowserRouter>

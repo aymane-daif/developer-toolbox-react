@@ -24,19 +24,15 @@ export default [
       // },
     ],
   },
-  // {
-  //   name: 'Compression',
-  //   options: [
-  //     {
-  //       name: 'Image Compression',
-  //       route: '/imageCompressor',
-  //     },
-  //     {
-  //       name: 'Image Decompression',
-  //       route: '/imageDecompressor',
-  //     },
-  //   ],
-  // },
+  {
+    name: 'Images',
+    options: [
+      {
+        name: 'Image Compression',
+        route: '/imageCompressor',
+      },
+    ],
+  },
   {
     name: 'Generators',
     options: [
