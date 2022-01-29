@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 function Header() {
   return (
     <Box p={4} backgroundColor='gray.700'>
-      <pre>[ Developer tools ]</pre>
+      <pre>&lt;Developer tools &#47;&gt;</pre>
     </Box>
   );
 }

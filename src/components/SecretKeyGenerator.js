@@ -1,5 +1,6 @@
 import { Box, Button, Input, useClipboard, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { copyToClipboard } from '../utils/copyToClipboard';
 import { generateRandomString } from '../utils/randoms';
 
 async function digestMessage(str) {
@@ -32,19 +33,12 @@ function SecretKeyGenerator() {
     setKey(digestHex);
   };
 
-  const copyToClipboard = (e) => {
+  const copyKey = (e) => {
     if (key !== lastKey) {
       setLastKey(key);
 
-      onCopy();
-      if (!toast.isActive(toastIdClipboard)) {
-        toast({
-          id: toastIdClipboard,
-          title: 'Password copied to clipboard',
-          variant: 'left-accent',
-          isClosable: true,
-        });
-      }
+      const title = 'Password copied to clipboard';
+      copyToClipboard(onCopy, toast, toastIdClipboard, title);
     }
   };
 
@@ -53,7 +47,7 @@ function SecretKeyGenerator() {
       <Button onClick={generateKey} mb={4}>
         Generate key
       </Button>
-      <Input value={key} isReadOnly onClick={copyToClipboard} />
+      <Input value={key} isReadOnly onClick={copyKey} />
     </Box>
   );
 }

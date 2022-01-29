@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 
 import { generateRandomString } from '../utils/randoms';
+import { copyToClipboard } from '../utils/copyToClipboard';
 
 function PasswordGenerator() {
   const initialOptions = {
@@ -62,16 +63,9 @@ function PasswordGenerator() {
       };
     });
   };
-  const copyToClipboard = (e) => {
-    onCopy();
-    if (!toast.isActive(toastIdClipboard)) {
-      toast({
-        id: toastIdClipboard,
-        title: 'Password copied to clipboard',
-        variant: 'left-accent',
-        isClosable: true,
-      });
-    }
+  const copyPassword = (e) => {
+    const title = 'Password copied to clipboard';
+    copyToClipboard(onCopy, toast, toastIdClipboard, title);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -128,7 +122,7 @@ function PasswordGenerator() {
               ml='1.5'
               colorScheme='facebook'
               variant='ghost'
-              onClick={copyToClipboard}>
+              onClick={copyPassword}>
               Copy to clipboard
             </Button>
           </Box>
